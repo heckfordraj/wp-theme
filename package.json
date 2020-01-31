@@ -1,0 +1,40 @@
+{
+  "name": "wp-theme",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "parcel build src/**/*.{php,html,ts,js,scss,css,jpe?g,png,gif,svg,woff,woff2,eot,ttf,otf,md,json,txt} --no-content-hash --no-source-maps",
+    "serve": "parcel watch src/**/*.{php,html,ts,js,scss,css,jpe?g,png,gif,svg,woff,woff2,eot,ttf,otf,md,json,txt}"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js}": "eslint --fix",
+    "*.{php,html,js,scss,css,md,json}": "prettier --write"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@prettier/plugin-php": "^0.12.0",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-prefer-arrow": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1",
+    "sass": "^1.25.0",
+    "typescript": "^3.7.5"
+  },
+  "license": "ISC"
+}
